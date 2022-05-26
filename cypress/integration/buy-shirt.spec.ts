@@ -12,12 +12,12 @@ describe("Buy a t-shirt", () => {
 
     cy.get("[name='processAddress']").click();
 
-    cy.get("#uniform-cgv").click()
+    cy.get("#uniform-cgv").click();
     cy.get("[name='processCarrier']").click();
 
-    cy.get(".bankwire").click()
+    cy.get(".bankwire").click();
 
-    cy.get('#cart_navigation > button > span').contains("I confirm my order").click();
+    cy.get("#cart_navigation > button > span").contains("I confirm my order").click();
 
     cy.get("#center_column > div > p > strong")
         .should("have.text", "Your order on My Store is complete.");
