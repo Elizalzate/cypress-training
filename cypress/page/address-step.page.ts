@@ -1,4 +1,4 @@
-class AdressStepPage {
+class AddressStepPage {
 
     private btnProcesstoCheckout: string;
 
@@ -11,4 +11,4 @@ class AdressStepPage {
     }
 }
 
-export { AdressStepPage }
+export { AddressStepPage }
