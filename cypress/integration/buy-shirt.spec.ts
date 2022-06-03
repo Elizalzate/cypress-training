@@ -2,9 +2,9 @@ import {AddressStepPage} from "../page/index";
 import {LoginPage} from "../page/index";
 import {MenuContentPage} from "../page/index";
 import {PaymentStepPage} from "../page/index";
-import { ProductsListPage } from "../page/index";
+import {ProductsListPage} from "../page/index";
 import {ShippingStepPage} from "../page/index";
-import { ShoppingCartPage } from "../page/index";
+import {ShoppingCartPage} from "../page/index";
 
 const adressStepPage = new AddressStepPage();
 const loginPage = new LoginPage();
@@ -32,7 +32,7 @@ describe("Buy a t-shirt", () => {
 
     paymentStepPage.payByBankWire();
     paymentStepPage.confirmOrder();
-    
-    paymentStepPage.getConfirmation();
+
+    paymentStepPage.verifyConfirmationMessage("Your order on My Store is complete.");
   });
 });

@@ -20,8 +20,8 @@ class PaymentStepPage {
         cy.get(this.btnConfirmMyOrder).contains(this.lblConfirmMyOrder).click();
     }
 
-    public getConfirmation(): void {
-        cy.get(this.lblFinishedOrder).should("have.text","Your order on My Store is complete.")
+    public verifyConfirmationMessage(message: string): void {
+        cy.get(this.lblFinishedOrder).should("have.text", message)
     }
 }
 
