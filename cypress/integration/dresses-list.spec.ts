@@ -11,6 +11,19 @@ describe("the user navigates to the dresses page should", () => {
   });
 
   it("show the available dresses", () => {
-    // ... realiza la prueba
+    // Arrange
+    const expectedDressNames = [
+      "Printed Dress", "Printed Dress", "Printed Summer Dress",
+      "Printed Summer Dress", "Printed Chiffon Dress",
+    ];
+
+    menuContentPage.visitMenuContentPage();
+
+    // Act
+    menuContentPage.goToDressesMenu();
+
+    // Assert
+    dressesListPage.validateItemsNumber(5);
+    dressesListPage.validateItemsNames(expectedDressNames);
   });
 });
