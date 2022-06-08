@@ -4,8 +4,8 @@ class ShippingStepPage {
     private btnProcessCarrier: string;
 
     constructor() {
-        this.btnAgreeTerms = "#uniform-cgv";        
-        this.btnProcessCarrier = "[name='processCarrier']";
+        this.btnAgreeTerms = "#cgv";        
+        this.btnProcessCarrier = "button[name='processCarrier']";
     }
 
     public proceedToCheckout(): void {

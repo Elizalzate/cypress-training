@@ -3,7 +3,7 @@ class AddressStepPage {
     private btnProcesstoCheckout: string;
 
     constructor() {
-        this.btnProcesstoCheckout = "[name='processAddress']";
+        this.btnProcesstoCheckout = "button[name='processAddress']";
     }
 
     public proceedToCheckout(): void {
