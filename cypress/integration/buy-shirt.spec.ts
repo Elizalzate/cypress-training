@@ -6,19 +6,35 @@ import {ProductsListPage} from "../page/index";
 import {ShippingStepPage} from "../page/index";
 import {ShoppingCartPage} from "../page/index";
 
-const adressStepPage = new AddressStepPage();
-const loginPage = new LoginPage();
-const menuContentPage = new MenuContentPage();
-const paymentStepPage = new PaymentStepPage();
-const productsListPage = new ProductsListPage();
-const shippingStepPage = new ShippingStepPage();
-const shoppingCartPage = new ShoppingCartPage();
-const email = "aperdomobo@gmail.com";
-const pass = "WorkshopProtractor";
+let addressStepPage: AddressStepPage;
+let loginPage: LoginPage;
+let menuContentPage: MenuContentPage;
+let paymentStepPage: PaymentStepPage;
+let productsListPage: ProductsListPage;
+let shippingStepPage: ShippingStepPage;
+let shoppingCartPage: ShoppingCartPage;
+let email: string;
+let pass: string;
 
 describe("Buy a t-shirt", () => {
+  before(()=>{
+    addressStepPage = new AddressStepPage();
+    loginPage = new LoginPage();
+    menuContentPage = new MenuContentPage();
+    paymentStepPage = new PaymentStepPage();
+    productsListPage = new ProductsListPage();
+    shippingStepPage = new ShippingStepPage();
+    shoppingCartPage = new ShoppingCartPage();
+    email = "aperdomobo@gmail.com";
+    pass = "WorkshopProtractor";
+  });
+
   it("then should be bought a t-shirt", () => {
+    // Arrange
+    const expectedConfirmationMessage = "Your order on My Store is complete.";
     menuContentPage.visitMenuContentPage();
+
+    // Act
     menuContentPage.goToTShirtMenu();
 
     productsListPage.addTShirt();
@@ -26,13 +42,14 @@ describe("Buy a t-shirt", () => {
     shoppingCartPage.confirmSummary();
 
     loginPage.signIn(email, pass);
-    adressStepPage.proceedToCheckout();
+    addressStepPage.proceedToCheckout();
 
     shippingStepPage.proceedToCheckout();
 
     paymentStepPage.payByBankWire();
     paymentStepPage.confirmOrder();
 
-    paymentStepPage.verifyConfirmationMessage("Your order on My Store is complete.");
+    // Assert
+    paymentStepPage.verifyConfirmationMessage(expectedConfirmationMessage);
   });
 });

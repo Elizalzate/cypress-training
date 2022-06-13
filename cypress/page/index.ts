@@ -1,4 +1,5 @@
 export { AddressStepPage  }  from "./address-step.page"
+export { DressesListPage  }  from "./dresses-list.page"
 export { LoginPage       }  from "./login.page"
 export { MenuContentPage }  from "./menu-content.page"
 export { PaymentStepPage }  from "./payment-step.page"
